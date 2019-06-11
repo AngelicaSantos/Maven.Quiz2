@@ -1,15 +1,22 @@
 package com.zipcodewilmington.assessment2.part2;
 
-import java.util.Arrays;
+import com.sun.deploy.util.ArrayUtil;
+import com.sun.tools.javac.util.ArrayUtils;
+
+import java.util.*;
 
 public class ArrayUtility {
     public Integer[] merge(Integer[] array1, Integer[] array2) {
 
-        Integer [] newArray = new Integer[array1.length+array2.length];
-        System.arraycopy(array1,0,newArray,0,array1.length);
-        System.arraycopy(array2,0,newArray,0,array2.length);
+        ArrayList<Integer> aList = new ArrayList<>(Arrays.asList(array1));
+        aList.addAll(Arrays.asList(array2));
 
-        return newArray;
+        Integer[] newarr = new Integer[aList.size()];
+        for (int i=0; i<aList.size();i++) {
+            newarr[i] = aList.get(i);
+        }
+
+         return newarr;
 
     }
 
@@ -40,23 +47,45 @@ public class ArrayUtility {
     }
 
     public Integer mostCommon(Integer[] array) {
-        // sort your array first
-        Arrays.sort(array);
+//        // sort your array first
+//        Arrays.sort(array);
+//
+//        int maxCount = 1, res = array[0];
+//        int currCount = 1;
+//        int n =1;
+//
+//        for (int i = 1; i < array.length - 1; i++) {
+//            if (currCount > maxCount) {
+//                maxCount = currCount;
+//                res = array[i - 1];
+//            }
+//            currCount = 1;
 
-        int maxCount = 1, res = array[0];
-        int currCount = 1;
-        int n =1;
+        Map<Integer,Integer> x = new TreeMap<>();
+        for (int i=0; i<array.length;i++) {
+            int y = array[i];
 
-        for (int i = 1; i < array.length - 1; i++) {
-            if (currCount > maxCount) {
-                maxCount = currCount;
-                res = array[i - 1];
+            if(x.containsKey(y)) {
+                int w =x.get(y);
+                w++;
+                x.put(y,w);
             }
-            currCount = 1;
+            else {
+                x.put(y,1);
+            }
+    }
+        int max_count = 0, res = -1;
+
+        for(Map.Entry<Integer, Integer> val : x.entrySet())
+        {
+            if (max_count < val.getValue())
+            {
+                res = val.getKey();
+                max_count = val.getValue();
+            }
         }
 
-
-        return res;
+        return res ;
     }
 
 

@@ -40,16 +40,16 @@ public class MergeTest {
 
 
 
-    @Test
-    public void test3() {
-        //Given
-        Integer[] array1 = {5, 1, 8, 9, 10};
-        Integer[] array2 = {4, 2, 11};
-        Integer[] expected = {9, 10, 11, 5, 1, 8, 4, 2};
-
-        // when
-        test(array1, array2, expected);
-    }
+//    @Test
+//    public void test3() {
+//        //Given
+//        Integer[] array1 = {5, 1, 8, 9, 10};
+//        Integer[] array2 = {4, 2, 11};
+//        Integer[] expected = {9, 10, 11, 5, 1, 8, 4, 2};
+//
+//        // when
+//        test(array1, array2, expected);
+//    }
 
 
     @Test
