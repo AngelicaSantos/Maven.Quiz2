@@ -21,9 +21,16 @@ public class ArrayUtility {
     }
 
     public Integer[] rotate(Integer[] array, Integer index) {
+        Integer [] ang = new Integer[array.length];
+        for (int i = 0; i < array.length; i++) {
+            if(i+index < array.length)
+                ang[i] = array[i+index];
+            else
+                ang[i] = array[i + index - array.length];
+        }
+        return ang;
 
 
-        return null;
     }
 
 
