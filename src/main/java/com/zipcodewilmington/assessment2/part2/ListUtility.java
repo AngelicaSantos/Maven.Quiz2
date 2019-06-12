@@ -22,18 +22,36 @@ public class ListUtility {
 
     public List<Integer> getUnique() {
 
-        return null;
+        List<Integer> unique= new ArrayList<>();
+        for (int i=0; i<list.size();i++) {
+            if(!unique.contains(list.get(i)));
+            unique.add(Integer.parseInt(list.get(i).toString()));
+        }
+
+        return unique;
     }
 
     public String join() {
 
+        String joi = "";
+        for (int i = 0; i < list.size(); i++) {
+            if (i == list.size() - 1)
+                joi += list.get(i).toString();
+            else
+                joi += list.get(i).toString()+ ", ";
 
-        return null;
+        }
+        return joi;
     }
+
 
     public Integer mostCommon() {
 
-        return null;
+        Integer [] comm = new Integer[list.size()];
+        for (int i=0; i<list.size(); i++) {
+            comm[i] = list.get(i);
+        }
+        return ArrayUtility.mostCommon(comm);
     }
 
     public Boolean contains(Integer valueToAdd) {

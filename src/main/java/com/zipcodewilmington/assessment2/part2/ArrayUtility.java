@@ -53,7 +53,7 @@ public class ArrayUtility {
         return count;
     }
 
-    public Integer mostCommon(Integer[] array) {
+    public static Integer mostCommon(Integer[] array) {
 //        // sort your array first
 //        Arrays.sort(array);
 //
